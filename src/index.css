@@ -236,7 +236,7 @@ button.flex.items-center.gap-2.px-4.py-2.bg-blue-600.text-white.rounded-lg.hover
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
   }
@@ -244,4 +244,4 @@ button.flex.items-center.gap-2.px-4.py-2.bg-blue-600.text-white.rounded-lg.hover
   .max-w-7xl {
     padding: 10px;
   }
-}
+} */
