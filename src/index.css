@@ -1,204 +1,247 @@
-/* Base Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* General Page Styling */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f7fafc;
+  color: #2d3748;
 }
 
-h1, h2, h3 {
-  color: #1f2937;
+/* Container for the entire app */
+.max-w-7xl {
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Header Styling */
+.flex.justify-between.items-center {
+  padding: 20px 0;
+  font-weight: bold;
+  color: #2563eb; /* Blue color */
+  /* background-color: pink; Red background */
 }
 
-button {
-  cursor: pointer;
+
+
+.text-3xl.font-bold {
+  color: #2d3748;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Add User Button */
+button.flex.items-center.gap-2.px-4.py-2.bg-blue-600.text-white.rounded-lg.hover\:bg-blue-700 {
+  background-color: yellow; /* Yellow background */
+  padding: 14px 20px; /* Larger button size */
+  font-size: 16px;
   border: none;
-  outline: none;
-  transition: background-color 0.2s ease-in-out, transform 0.1s;
+  cursor: pointer;
+  font-weight: bold; /* Bold text */
+  color: black;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  transform: translateY(-1px);
+button.flex.items-center.gap-2.px-4.py-2.bg-blue-600.text-white.rounded-lg.hover\:bg-blue-700:hover {
+  background-color: #fbbf24; /* Hover yellow */
+  transform: translateY(-2px);
 }
 
-input[type="text"],
-input[type="email"],
-input[type="file"],
-input[type="color"],
-textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background-color: #ffffff;
-  font-size: 14px;
+
+button.flex.items-center.gap-2.px-4.py-2.bg-blue-600.text-white.rounded-lg.hover:bg-blue-700:hover {
+  background-color: #2c5282;
+  transform: translateY(-2px);
 }
 
-input:focus, 
-textarea:focus {
-  outline: 2px solid #60a5fa;
+/* Grid Layout for Profile Cards */
+.grid {
+  display: grid;
+  gap: 24px;
+  padding: 20px;
 }
 
-/* Profile Card */
-.profile-card {
+/* Profile Card Styling */
+.rounded-lg.shadow-lg {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.1s ease-in-out;
+  border: 1px solid #e2e8f0;
 }
 
-.profile-card:hover {
-  transform: translateY(-4px);
+.rounded-lg.shadow-lg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.profile-card img {
+/* Profile Image Styling */
+.relative img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.profile-card .profile-content {
-  padding: 16px;
+/* Edit and Delete Buttons */
+.absolute.top-2.right-2.flex.gap-2 button {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.profile-card h3 {
-  font-size: 18px;
+.absolute.top-2.right-2.flex.gap-2 button:hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Profile Card Content Styling */
+.p-4 h3 {
+  font-size: 1.25rem;
   font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+.p-4 p {
+  font-size: 0.875rem;
+  color: #4a5568;
   margin-bottom: 8px;
 }
 
-.profile-card p {
-  font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 4px;
-}
-
-.profile-card button {
-  background-color: #f3f4f6;
-  padding: 6px 10px;
-  border-radius: 50%;
-}
-
-.profile-card button:hover {
-  background-color: #e5e7eb;
-}
-
-/* Action Buttons */
-.action-buttons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 8px;
-}
-
-.action-buttons button {
-  padding: 8px;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s;
-}
-
-.action-buttons button:hover {
-  background-color: #f3f4f6;
-}
-
-.action-buttons svg {
-  width: 16px;
-  height: 16px;
-}
-
-.edit-form-wrapper {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-}
-
-.edit-form {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 500px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.edit-form h2 {
-  font-size: 20px;
-  margin-bottom: 16px;
-}
-
-.form-group {
-  margin-bottom: 12px;
-}
-
-.form-group label {
-  font-size: 14px;
-  color: #374151;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.edit-form button {
-  padding: 8px 16px;
-  border-radius: 8px;
-  color: white;
+.p-4 button.flex.items-center.gap-2.text-blue-600.hover:text-blue-700 {
+  background: none;
+  border: none;
+  cursor: pointer;
   font-weight: 500;
+  color: #3182ce;
+  transition: color 0.3s ease;
 }
 
-.cancel-btn {
-  background-color: #f3f4f6;
-  color: #374151;
+.p-4 button.flex.items-center.gap-2.text-blue-600.hover:text-blue-700:hover {
+  color: #2c5282;
 }
 
-.cancel-btn:hover {
-  background-color: #d1d5db;
+/* Form Styling */
+.fixed.inset-0.bg-black.bg-opacity-50.flex.items-center.justify-center.p-4.z-50 {
+  backdrop-filter: blur(4px);
 }
 
-.save-btn {
-  background-color: #2563eb;
+.bg-white.rounded-lg.p-6.max-w-md.w-full {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.save-btn:hover {
-  background-color: #1d4ed8;
+/* Form Header Styling */
+.flex.justify-between.items-center.mb-4 h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
 }
 
-/* Responsive Grid Layout */
-.profile-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  padding: 16px;
+.flex.justify-between.items-center.mb-4 button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4a5568;
+  transition: color 0.3s ease;
 }
 
-.add-user-btn {
-  background-color: #3b82f6;
-  padding: 10px 14px;
-  color: white;
+.flex.justify-between.items-center.mb-4 button:hover {
+  color: #2d3748;
+}
+
+/* Form Input Styling */
+.space-y-4 input,
+.space-y-4 textarea {
+  width: 60%; /* Medium size, adjust as necessary */
+  max-width: 400px; /* Optional maximum limit */
+  padding: 10px;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
+  font-size: 0.875rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.space-y-4 input:focus,
+.space-y-4 textarea:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+  outline: none;
+}
+
+
+/* Form Image Preview Styling */
+.w-24.h-24.object-cover.rounded-lg {
+  width: 200px; /* Medium width */
+  height: 200px; /* Medium height */
+  border: 2px solid #e2e8f0;
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
+  border-radius: 12px; /* Smooth corners */
+  background-color: #f9fafb; /* Light background for better contrast */
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
 }
 
-.add-user-btn:hover {
-  background-color: #2563eb;
+
+
+/* Cancel and Save Buttons */
+.flex.justify-end.space-x-2 button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold; /* Bold text */
+  cursor: pointer;
+  background-color: #facc15; /* Yellow background */
+  color: #000000; /* Black text */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.flex.justify-end.space-x-2 button:hover {
+  background-color: #fbbf24; /* Lighter yellow on hover */
+  transform: translateY(-2px);
+}
+
+
+
+
+
+.flex.justify-end.space-x-2 button.px-4.py-2.text-gray-600.hover:bg-gray-100 {
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border: none;
+}
+
+.flex.justify-end.space-x-2 button.px-4.py-2.text-gray-600.hover:bg-gray-100:hover {
+  background-color: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+.flex.justify-end.space-x-2 button.px-4.py-2.bg-blue-600.text-white.hover:bg-blue-700 {
+  background-color: #3182ce;
+  border: none;
+}
+
+.flex.justify-end.space-x-2 button.px-4.py-2.bg-blue-600.text-white.hover:bg-blue-700:hover {
+  background-color: #2c5282;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .max-w-7xl {
+    padding: 10px;
+  }
 }
